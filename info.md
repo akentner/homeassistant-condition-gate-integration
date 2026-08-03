@@ -1,0 +1,1 @@
+Wraps a `light` or `switch` entity in a user-facing entity of the same domain. When the wrapper is active, a Jinja condition template decides whether the target is on or off; when inactive, the target is forced off. State persists across restarts.

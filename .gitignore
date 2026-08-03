@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Agent / planning infrastructure (local only)
+.codegraph
+.codegraph/
+.omo/
+.opencode/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
