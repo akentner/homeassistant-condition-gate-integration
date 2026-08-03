@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Condition Gate hinzufügen",
+        "description": "Erstellt einen Schalter oder ein Licht, das eine Ziel-Entität abhängig von einem Jinja-Bedingungs-Template steuert.",
+        "data": {
+          "name": "Name",
+          "target_entity": "Ziel-Entität (light oder switch)",
+          "condition": "Bedingungs-Template (Jinja)",
+          "icon_inactive": "Icon (inaktiv)",
+          "icon_active_on": "Icon (aktiv, Kriterium erfüllt)",
+          "icon_active_off": "Icon (aktiv, Kriterium nicht erfüllt)"
+        }
+      },
+      "reconfigure": {
+        "title": "Condition Gate rekonfigurieren",
+        "description": "Konfiguration bearbeiten. Die Ziel-Entität {target_entity} kann nicht geändert werden; zum Wechseln löschen und neu anlegen.",
+        "data": {
+          "name": "Name",
+          "target_entity": "Ziel-Entität (light oder switch)",
+          "condition": "Bedingungs-Template (Jinja)",
+          "icon_inactive": "Icon (inaktiv)",
+          "icon_active_on": "Icon (aktiv, Kriterium erfüllt)",
+          "icon_active_off": "Icon (aktiv, Kriterium nicht erfüllt)"
+        }
+      }
+    },
+    "error": {
+      "unsupported_domain": "Ziel muss eine light- oder switch-Entität sein.",
+      "invalid_template": "Das Bedingungs-Template konnte nicht geparst werden."
+    },
+    "abort": {
+      "already_configured": "Diese Ziel-Entität ist bereits konfiguriert.",
+      "reconfigure_successful": "Condition Gate rekonfiguriert."
+    }
+  },
+  "services": {
+    "re_evaluate": {
+      "name": "Neu auswerten",
+      "description": "Erzwingt eine erneute Auswertung der Bedingung für ein oder alle Condition Gates.",
+      "fields": {
+        "entity_id": {
+          "name": "Entität",
+          "description": "Welches Gate neu ausgewertet werden soll. Leer = alle."
+        }
+      }
+    }
+  }
+}

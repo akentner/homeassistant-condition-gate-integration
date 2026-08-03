@@ -1,0 +1,12 @@
+re_evaluate:
+  name: Re-evaluate
+  description: Force criteria re-evaluation for one or all criteria switches.
+  fields:
+    entity_id:
+      name: Entity
+      description: Which switch to re-evaluate. Empty applies to all.
+      required: false
+      selector:
+        entity:
+          domain: switch
+          multiple: true

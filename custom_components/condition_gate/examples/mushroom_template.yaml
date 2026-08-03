@@ -1,0 +1,36 @@
+# Mushroom Template card for a condition_gate wrapper
+# -----------------------------------------------------------------------------
+# Drop-in replacement for the original tile card. Uses icon_color as a
+# Jinja template so the colour reflects the wrapper's active/inactive
+# state directly. Place in a dashboard via raw YAML mode.
+# -----------------------------------------------------------------------------
+
+type: custom:mushroom-template-card
+primary: "{{ state_attr(entity, 'friendly_name') }}"
+secondary: |-
+  {% if is_state(entity, 'on') %}
+    Kriterium erfüllt
+  {% else %}
+    Inaktiv
+  {% endif %}
+icon: "{{ state_attr(entity, 'icon') }}"
+entity: light.livingroom22_led_candles_auto
+icon_color: |-
+  {% if is_state(entity, 'on') %}
+    orange
+  {% else %}
+    grey
+  {% endif %}
+fill_container: false
+layout: horizontal
+multiline_secondary: true
+tap_action:
+  action: toggle
+hold_action:
+  action: more-info
+features:
+  - type: custom:mushroom-template-no-state-button
+    entity: light.livingroom22_led_candles_auto
+    icon: mdi:flash-outline
+    tap_action:
+      action: toggle

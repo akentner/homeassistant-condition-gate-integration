@@ -1,0 +1,13 @@
+{
+  "domain": "condition_gate",
+  "name": "Condition Gate",
+  "version": "1.0.0",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "integration_type": "service",
+  "dependencies": [],
+  "requirements": [],
+  "issue_tracker": "https://github.com/akentner/homeassistant-condition-gate-integration/issues",
+  "codeowners": ["@akentner"],
+  "documentation": "https://github.com/akentner/homeassistant-condition-gate-integration"
+}

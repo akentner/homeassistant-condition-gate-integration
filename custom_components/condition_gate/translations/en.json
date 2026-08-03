@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add a Condition Gate",
+        "description": "Create a switch or light that controls a target entity based on a Jinja condition template.",
+        "data": {
+          "name": "Name",
+          "target_entity": "Target entity (light or switch)",
+          "condition": "Condition template (Jinja)",
+          "icon_inactive": "Icon (inactive)",
+          "icon_active_on": "Icon (active, criterion met)",
+          "icon_active_off": "Icon (active, criterion not met)"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Condition Gate",
+        "description": "Editing the configuration. The target entity {target_entity} cannot be changed; remove and re-add to switch targets.",
+        "data": {
+          "name": "Name",
+          "target_entity": "Target entity (light or switch)",
+          "condition": "Condition template (Jinja)",
+          "icon_inactive": "Icon (inactive)",
+          "icon_active_on": "Icon (active, criterion met)",
+          "icon_active_off": "Icon (active, criterion not met)"
+        }
+      }
+    },
+    "error": {
+      "unsupported_domain": "Target must be a light or switch entity.",
+      "invalid_template": "The condition template failed to parse."
+    },
+    "abort": {
+      "already_configured": "This target entity is already configured.",
+      "reconfigure_successful": "Condition Gate reconfigured."
+    }
+  },
+  "services": {
+    "re_evaluate": {
+      "name": "Re-evaluate",
+      "description": "Force condition re-evaluation for one or all condition gates.",
+      "fields": {
+        "entity_id": {
+          "name": "Entity",
+          "description": "Which gate to re-evaluate. Empty applies to all."
+        }
+      }
+    }
+  }
+}

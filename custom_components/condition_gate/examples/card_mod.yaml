@@ -1,0 +1,61 @@
+# card-mod example: 3-state tile color for condition_gate
+# -----------------------------------------------------------------------------
+# Drop this into a Lovelace tile card via YAML mode (raw config editor).
+# Requires the `card-mod` custom integration (HACS).
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Option A: tile + card_mod style
+# -----------------------------------------------------------------------------
+type: tile
+entity: switch.condition_gate_wohnzimmer_kerzen_auto
+card_mod:
+  style: |
+    ha-card {
+      {% if is_state('switch.condition_gate_wohnzimmer_kerzen_auto', 'off') %}
+        --shape-color: var(--secondary-text-color);
+      {% elif state_attr('switch.condition_gate_wohnzimmer_kerzen_auto', 'criteria_met') %}
+        --shape-color: #ff8c1e;
+      {% else %}
+        --shape-color: #ffc850;
+      {% endif %}
+    }
+
+# -----------------------------------------------------------------------------
+# Option B: entity + card_mod style (if you prefer the entity card)
+# -----------------------------------------------------------------------------
+# type: entity
+# entity: switch.condition_gate_wohnzimmer_kerzen_auto
+# card_mod:
+#   style: |
+#     ha-card {
+#       {% if is_state('switch.condition_gate_wohnzimmer_kerzen_auto', 'off') %}
+#         --shape-color: var(--secondary-text-color);
+#       {% elif state_attr('switch.condition_gate_wohnzimmer_kerzen_auto', 'criteria_met') %}
+#         --shape-color: #ff8c1e;
+#       {% else %}
+#         --shape-color: #ffc850;
+#       {% endif %}
+#     }
+
+# -----------------------------------------------------------------------------
+# Color legend
+# -----------------------------------------------------------------------------
+#   state=off                              →  grey     (--secondary-text-color)
+#     - user has disabled the criteria switch
+#     - target is force-off
+#
+#   state=on, criteria_met=false          →  amber    (#ffc850)
+#     - criteria not met, target is off
+#     - example: daytime before dusk
+#
+#   state=on, criteria_met=true           →  warm     (#ff8c1e)
+#     - criteria met, target is on
+#     - example: after dusk, before 01:00
+
+# -----------------------------------------------------------------------------
+# Adapting for your own entity
+# -----------------------------------------------------------------------------
+# Replace the two occurrences of:
+#   switch.condition_gate_wohnzimmer_kerzen_auto
+# with your switch's entity_id.

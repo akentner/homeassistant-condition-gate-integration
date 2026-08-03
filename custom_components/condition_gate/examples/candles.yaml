@@ -1,0 +1,61 @@
+# Example: Living-room candles with Condition Gate
+# -----------------------------------------------------------------------------
+# Reference configuration. This file is NOT loaded by Home Assistant.
+# Use it as a checklist when adding the integration via the UI:
+# Settings → Devices & Services → Add Integration → Condition Gate.
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Form fields
+# -----------------------------------------------------------------------------
+
+# Name:                Wohnzimmer Kerzen Auto
+# Target Entity:       light.livingroom22_candles
+# Condition Template (paste into the template editor):
+# -----------------------------------------------------------------------------
+# {{ state_attr('sun.sun', 'elevation') is not none
+#    and state_attr('sun.sun', 'elevation') < -3
+#    and now().hour < 1 }}
+# -----------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Behavior
+# -----------------------------------------------------------------------------
+
+#  18:00  user toggles the switch on
+#         ↳ switch is_on = true
+#         ↳ criterion checks: sun.elevation ≈ +5° → false
+#         ↳ target.turn_off (candles stay off)
+#         ↳ icon: amber (mdi:flash-outline)
+#
+#  21:35  sun crosses -3° (dusk)
+#         ↳ criterion becomes true
+#         ↳ target.turn_on (candles on)
+#         ↳ icon: warm orange (mdi:fire)
+#
+#  01:00  now().hour >= 1
+#         ↳ criterion becomes false
+#         ↳ target.turn_off (candles off)
+#         ↳ switch remains on (user has not manually disarmed)
+#         ↳ icon: amber (mdi:flash-outline)
+#
+#  21:35  next day, sun crosses -3° again
+#         ↳ target.turn_on (candles on again)
+#         ↳ … repeats each night until the user toggles the switch off
+
+# -----------------------------------------------------------------------------
+# Lovelace tile (3-state color via card_mod)
+# -----------------------------------------------------------------------------
+# type: tile
+# entity: switch.condition_gate_wohnzimmer_kerzen
+# card_mod:
+#   style: |
+#     ha-card {
+#       {% if is_state('switch.condition_gate_wohnzimmer_kerzen', 'off') %}
+#         --shape-color: var(--secondary-text-color);
+#       {% elif state_attr('switch.condition_gate_wohnzimmer_kerzen', 'criteria_met') %}
+#         --shape-color: #ff8c1e;
+#       {% else %}
+#         --shape-color: #ffc850;
+#       {% endif %}
+#     }
