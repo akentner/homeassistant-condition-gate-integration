@@ -19,31 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-## Home Assistant Community Addendum
-
-This integration is a community contribution for
-[Home Assistant](https://www.home-assistant.io/). By using, distributing,
-or contributing to it, you agree to the following:
-
-* **No warranty.** This software is provided "as is" by the author.
-  Home Assistant, the Home Assistant Community, and the author make no
-  guarantees about fitness for any particular purpose.
-
-* **Trademark.** "Home Assistant" is a trademark of the Home Assistant
-  Foundation. This project is not affiliated with, endorsed by, or
-  sponsored by the Home Assistant Foundation except as a community
-  contribution published through
-  [HACS](https://hacs.xyz/).
-
-* **Community guidelines.** Contributions and interactions are expected
-  to follow the
-  [Home Assistant Community Guidelines](https://community.home-assistant.io/guidelines)
-  and the project's own [`CODE_OF_CONDUCT`](.github/CODE_OF_CONDUCT.md)
-  if present.
-
-* **Support scope.** Author-provided support is best-effort and
-  community-driven. For Home Assistant Core issues, file them upstream
-  at <https://github.com/home-assistant/core>.

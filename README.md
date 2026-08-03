@@ -111,5 +111,7 @@ Triggers that fire a reconcile:
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). Built for the
-[Home Assistant](https://www.home-assistant.io/) community.
+MIT — see [`LICENSE`](LICENSE). The
+[`HOME_ASSISTANT_COMMUNITY.md`](HOME_ASSISTANT_COMMUNITY.md) addendum
+documents the additional expectations that come with publishing for the
+[Home Assistant](https://www.home-assistant.io/) ecosystem.
