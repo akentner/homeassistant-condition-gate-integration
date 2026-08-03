@@ -22,6 +22,8 @@ from .const import ALLOWED_TARGET_DOMAINS, CONF_TARGET_ENTITY, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
+CONFIG_SCHEMA = cv.config_entry_only_config_schema
+
 RE_EVALUATE_SERVICE = "re_evaluate"
 RE_EVALUATE_SCHEMA = vol.Schema(
     {
